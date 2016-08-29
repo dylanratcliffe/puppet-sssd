@@ -1,0 +1,14 @@
+{
+  "name": "teamix-sssd",
+  "version": "0.1.0",
+  "author": "teamix GmbH",
+  "summary": "Configuration of the System Security Services Daemon (SSSD)",
+  "license": "Apache 2.0",
+  "source": "https://github.com/teamix/puppet-sssd",
+  "project_page": "https://github.com/teamix/puppet-sssd",
+  "issues_url": "https://github.com/teamix/puppet-sssd/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

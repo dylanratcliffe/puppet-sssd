@@ -1,0 +1,12 @@
+[sssd]
+domains = <%= scope.lookupvar('sssd::domains') %>
+default_domain_suffix = <%= scope.lookupvar('sssd::default_domain') %>
+config_file_version = 2
+services = nss, pam
+
+[nss]
+get_domains_timeout = 60
+memcache_timeout = 60
+
+[pam]
+
