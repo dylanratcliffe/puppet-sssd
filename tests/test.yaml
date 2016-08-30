@@ -1,0 +1,51 @@
+sssd::config:
+  sssd:
+    domains: 'example'
+    default_domain_suffix: 'example'
+    config_file_version: 2
+    services: 'nss, pam'
+  'domain/ldap.example.com':
+    id_provider: 'ldap'
+    auth_provider: 'ldap'
+    chpass_provider: 'ldap'
+    override_shell: '/bin/bash'
+    override_homedir: '/home/%u'
+    override_gid: 100
+    default_gid: 100
+    create_homedir: true
+    remove_homedir: true
+    homedir_umask: '077'
+    skel_dir: '/etc/skel'
+    re_expression: '(((?P<domain>[^\\]+)\\(?P<name>.+$))|((?P<name>[^@]+)@(?P<domain>.+$))|(^(?P<name>[^@\\]+)$))'
+    full_name_format: '%1$s'
+    ldap_uri: 'ldaps://ldap.example.com/'
+    ldap_search_base: 'DC=example,DC=com'
+    ldap_default_bind_dn: ''
+    ldap_default_authtok: ''
+    ldap_schema: 'ad'
+    ldap_user_search_base: 'DC=example,DC=com'
+    ldap_user_object_class: 'user'
+    ldap_group_search_base: 'DC=example,DC=com'
+    ldap_group_object_class: 'group'
+    ldap_account_expire_policy: 'ad'
+    ldap_force_upper_case_realm: false
+    ldap_id_mapping: true
+    override_gid: 100
+    default_gid: 100
+    ldap_user_filter: ''
+    ldap_group_filter: ''
+    access_provider: 'simple'
+    simple_allow_users: 'root'
+    simple_allow_groups: 'root,users'
+    ldap_tls_reqcert: 'demand'
+    ldap_tls_cacert: '/etc/pki/tls/cert.pem'
+    ldap_id_use_start_tls: false
+    ldap_tls_cacertdir: '/etc/pki/tls'
+    enumerate: false
+    cache_credentials: true
+    reconnection_retries: 10
+    offline_credentials_expiration: 0
+    offline_failed_login_attempts: 5
+    offline_failed_login_delay: 5
+    debug_level: 4
+
