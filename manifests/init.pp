@@ -100,7 +100,7 @@ class sssd (
   case $::osfamily {
     'RedHat': {
       case $::operatingsystemmajrelease {
-        6, 7: {
+        '6', '7': {
           include 'sssd::package'
           include 'sssd::config'
           include 'sssd::service'
@@ -115,7 +115,7 @@ class sssd (
     }
     'Suse': {
       case $::operatingsystemmajrelease {
-        11, 12: {
+        '11', '12': {
           include 'sssd::package'
           include 'sssd::config'
           include 'sssd::service'
