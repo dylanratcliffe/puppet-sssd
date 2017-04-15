@@ -46,8 +46,8 @@ class sssd::params {
   $create_default_domain                  = false
 
   $default_domain                         = 'default'
-  $default_template                       = "templates/${module_name}/etc/sssd/sssd.conf.erb"
-  $default_domain_template                = "templates/${module_name}/etc/sssd/domain-ad.erb"
+  $default_template                       = "${module_name}/etc/sssd/sssd.conf.erb"
+  $default_domain_template                = "${module_name}/etc/sssd/domain-ad.erb"
 
   $default_id_provider                    = 'ldap'
   $default_auth_provider                  = 'ldap'
