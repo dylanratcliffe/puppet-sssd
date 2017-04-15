@@ -39,12 +39,12 @@ class sssd::config {
   case $::osfamily {
     'RedHat': {
       file { '/etc/oddjobd.conf.d/oddjobd-mkhomedir.conf':
-        ensure     => present,
-        owner      => 'root',
-        group      => 'root',
-        mode       => '0644',
-        source     => "puppet:///modules/${module_name}/etc/oddjobd.conf.d/oddjobd-mkhomedir.conf",
-        notify     => Service['oddjobd'],
+        ensure => present,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0644',
+        source => "puppet:///modules/${module_name}/etc/oddjobd.conf.d/oddjobd-mkhomedir.conf",
+        notify => Service['oddjobd'],
       }
     }
   }
@@ -54,10 +54,11 @@ class sssd::config {
     owner  => 'root',
     group  => 'root',
     mode   => '0700',
-  }->
+  }
+
   concat { '/etc/sssd/sssd.conf':
     target  => '/etc/sssd/sssd.conf',
-    content => template($sssd::template),
+    content => template($sssd::default_template),
     order   => '10',
     notify  => Service['sssd'],
   }

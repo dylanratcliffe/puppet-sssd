@@ -48,7 +48,7 @@ class sssd::service {
       }
     }
     'Suse': {
-      service { 'sssd': 
+      service { 'sssd':
         ensure => running,
         enable => true,
       }

@@ -49,7 +49,7 @@ class sssd::package {
       }
     }
     'Suse': {
-      package { ['sssd', 'sssd-tools']: 
+      package { ['sssd', 'sssd-tools']:
         ensure => present,
       }
     }
