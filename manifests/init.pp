@@ -99,7 +99,7 @@ class sssd (
   # avoid installations on unsupported operating systems
   case $::osfamily {
     'RedHat': {
-      case $::lsbmajdistrelease {
+      case $::operatingsystemmajrelease {
         6, 7: {
           include 'sssd::package'
           include 'sssd::config'
@@ -109,12 +109,12 @@ class sssd (
           Class['sssd::package'] -> Class['sssd::config'] -> Class['sssd::service'] -> Class['sssd::authconfig']
         }
         default: {
-          fail("unsupported lsbmajdistrelease ${::lsbmajdistrelease}")
+          fail("unsupported operatingsystemmajrelease ${::operatingsystemmajrelease}")
         }
       }
     }
     'Suse': {
-      case $::lsbmajdistrelease {
+      case $::operatingsystemmajrelease {
         11, 12: {
           include 'sssd::package'
           include 'sssd::config'
@@ -124,7 +124,7 @@ class sssd (
           Class['sssd::package'] -> Class['sssd::config'] -> Class['sssd::service'] -> Class['sssd::authconfig']
         }
         default: {
-          fail("unsupported lsbmajdistrelease ${::lsbmajdistrelease}")
+          fail("unsupported operatingsystemmajrelease ${::operatingsystemmajrelease}")
         }
       }
     }
